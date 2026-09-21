@@ -24,8 +24,10 @@ Após alcançar 52.30% de ROI com médias de xG (Expected Goals), a hipótese te
 **Importante:** este threshold foi selecionado varrendo o conjunto de teste e escolhendo o valor de maior ROI. O número é, portanto, o teto otimista do modelo, não uma estimativa honesta de desempenho. Ver Limitações Metodológicas.
 
 * **A Engenharia:** Expandimos o Motor Temporal extraindo dados do *football-data.co.uk*. Passamos de 4 variáveis para 12 dimensões táticas de Ataque e Defesa: `xG`, `xGA`, `Remates`, `Remates no Alvo`, `Cantos` e `Faltas`.
-* **O Paradoxo dos Dados:** Ao rodar o novo modelo de 12 variáveis no Radar Quantitativo, o resultado foi **exatamente o mesmo**: 52.30% de ROI nas mesmas 10 entradas.
-* **O Diagnóstico (Lição Aprendida):** Comprovamos na prática o efeito da **Multicolinearidade**. A métrica de xG já carrega implicitamente a informação de chutes e escanteios. O algoritmo (*Random Forest*) reconheceu que as novas colunas eram redundantes. Além disso, mapeamos o **Teto de Eficiência da Premier League**: a casa de apostas (Bet365) simplesmente não comete mais do que 10 erros grosseiros por temporada nesse mercado.
+* **O Resultado:** o modelo de 12 variáveis chegou a um ROI muito próximo (52,30%, também com 10 entradas), mas com threshold ótimo diferente (1,29 contra 1,27) e hiperparâmetros diferentes — não foi uma comparação controlada.
+* **A Observação:** o filtro de EV+ alto reduz drasticamente o volume, restando pouquíssimas entradas por temporada. Com 10 operações não é possível distinguir habilidade preditiva de variância, nem concluir nada sobre a eficiência
+estrutural do mercado.
+* **O Diagnóstico:** a verificação mostrou colinearidade moderada entre as variáveis de finalização (VIF entre X e Y), mas não redundância completa. A ausência de ganho no modelo de 12 variáveis não é totalmente explicada por multicolinearidade, o volume de apostas, restrito a 10 entradas, é a explicação mais provável.
 
 ## Limitações Metodológicas Conhecidas 
 
