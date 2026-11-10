@@ -9,7 +9,6 @@ Para evitar que o modelo previsse o passado usando médias do futuro, construím
 ### O Paradoxo da Acurácia vs. ROI
 Focamos o *Random Forest* no mercado de Gols (Over/Under 2.5). Focamos o *Random Forest* no mercado de Gols (Over/Under 2.5). O modelo classificava a maior parte dos jogos com alta confiança, mas o Backtest Financeiro cruzado com as Odds da Bet365 revelou um **ROI negativo**. 
 * **O Diagnóstico:** acurácia não vence o *Juice* (margem da casa) e, para um modelo probabilístico, acurácia nem é a métrica certa. O que importa é ter probabilidade mais bem calibrada que o mercado. O modelo apostava em todos os jogos com falsa confiança, comprando odds esmagadas sem Valor Esperado positivo.
-* **O Diagnóstico:** Acurácia não vence o *Juice* (margem de lucro da casa). O modelo atirava em todos os jogos com "falsa confiança", comprando *Odds* esmagadas sem Valor Esperado (EV+).
 
 ### Calibração de Probabilidades e Radar EV+
 Para reverter o prejuízo, implementamos técnicas de fundos quantitativos:
